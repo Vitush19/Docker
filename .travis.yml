@@ -9,12 +9,12 @@ script:
   
   - docker push $DOCKER_USERNAME/tp-devops
 
-  branches: 
-    only:
-      - develop
+branches: 
+  only:
+    - develop
 
-  cache:
-    directories:
-      - $HOME/.m2
-    services:
-      - docker
+cache:
+  directories:
+    - $HOME/.m2
+  services:
+    - docker
