@@ -22,9 +22,6 @@ cache:
 services:
   - docker
 
-notifications:
-  email:false
-
 addons:
   sonarcloud:
     organization: "Vitush19"
