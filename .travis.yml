@@ -2,7 +2,8 @@ language: java
 
 script:
   - cd ./simple-api
-  - mvn clean verify
+  - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install
+sonar:sonar -Dsonar.projectKey=Vitush19_Docker
 
   # Connexion à Docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -21,3 +22,11 @@ cache:
 
 services:
   - docker
+
+notifications:
+  email:false
+
+addons:
+  sonarcloud:
+    organization: "Vitush19"
+    token: "$SONARCLOUD_TOKEN"
