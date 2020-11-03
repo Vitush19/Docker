@@ -3,7 +3,7 @@ script:
   - cd ./simple-api
   - mvn clean verify
 
-  - echo "*DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
   - docker build -t $DOCKER_USERNAME/tp-devops .
   
