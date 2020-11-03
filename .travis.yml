@@ -1,17 +1,11 @@
 language: java
 
-script:
-  - mvn clean verify --file ./simple-api/pom.xml org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Vitush19_Docker
-
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-
-  - docker build -t $DOCKER_USERNAME/tp-devops:docker-tp2-simple-api simple-api
-  - docker build -t $DOCKER_USERNAME/tp-devops:docker-tp2-database database
-  - docker build -t $DOCKER_USERNAME/tp-devops:docker-tp2-httpd httpd
-
-  - docker push $DOCKER_USERNAME/tp-devops:docker-tp2-simple-api
-  - docker push $DOCKER_USERNAME/tp-devops:docker-tp2-database
-  - docker push $DOCKER_USERNAME/tp-devops:docker-tp2-httpd
+jobs:
+  include:
+    - stage: dev
+      script: bash scripts/build.sh
+    -stage: prod
+      script: bash scripts/docker.sh
 
 branches:
   only:
