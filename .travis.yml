@@ -4,7 +4,7 @@ jobs:
   include:
     - stage: dev
       script: bash scripts/build.sh
-    -stage: prod
+    - stage: prod
       script: bash scripts/docker.sh
 
 branches:
