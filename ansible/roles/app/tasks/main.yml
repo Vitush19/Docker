@@ -1,0 +1,9 @@
+- name: start app container
+  docker_container:
+    name: backend
+    image: vitush19/tp-devops:docker-tp2-simple-api
+    networks:
+      - name: app-network
+        links:
+          - database
+# tasks file for roles/app

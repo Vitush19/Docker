@@ -1,0 +1,8 @@
+- name: Create a proxy container
+  docker_container:
+    name: reverse_proxy
+    image: vitush19/tp-devops:docker-tp2-httpd
+    ports:
+      - "80:80"
+    networks:
+      - name: "app-network"
