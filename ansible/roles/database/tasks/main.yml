@@ -2,7 +2,6 @@
   docker_container:
     name: database
     image: vitush19/tp-devops:docker-tp2-database
-    state: started
     restart: yes
     networks:
       - name: app-network
